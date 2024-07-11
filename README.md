@@ -47,5 +47,9 @@ Measurement of the global solar radiation received on a horizontal surface, corr
 
 Architecture chosen for this model is reminiscent of transformer architecture. However, instead of using positional embeddings, we are using LSTMs to feed the context of time. The architecture consits of two parts
 #### 1. Encoder
-Encoder is an lstm layer followed by an multihead attention with 8 heads followed by feed forward neural network and skip connections between output of attention layer and output of feed forward neural network. 
+Encoder is an lstm layer followed by an multihead attention with 8 heads followed by feed forward neural network and skip connections between output of attention layer and output of feed forward neural network and normalizing the layer.
+#### 2. Decoder
+Decoder is basically like encoder with LSTM follwed by multihead attention layer with 8 heads followed by feed forward neural network and skip connections between output of attention layer and output of feed forward layer and a normalizing layer at the end. Except, cross attention is present in decoder layer. Key and value from the encoder is fed to the key and value of the decoder multihead attention layer. Also, hidden states of decoder LSTM are initialized with final hidden state of encoder LSTM layer. If there are n encoder and n decoder blocks, then, hidden state of first encoder block will be used to initialize nth decoder LSTM, similarity 2nd encoder LSTM hidden state will be transferred to n-1th decoder LSTM and so on. 
+
+
 
