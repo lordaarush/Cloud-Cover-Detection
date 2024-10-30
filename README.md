@@ -1,5 +1,5 @@
 # CCD-Cloud-Coverage-Detection
-## Problem Statement
+## The Problem
 To detect the cloud cover percentage for future given 6 hours of past data
 
 
